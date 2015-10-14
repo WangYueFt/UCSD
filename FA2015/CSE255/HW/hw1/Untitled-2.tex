@@ -1,0 +1,51 @@
+\documentclass [11pt, a4paper, oneside] {article}
+\usepackage {amsmath}
+\usepackage {geometry}
+\geometry{left=2.5cm,right=2.5cm}
+\usepackage {amssymb}
+\usepackage {graphicx}
+\usepackage {pythonhighlight} 
+\usepackage{multirow}
+\linespread{1.5}
+\usepackage{color}
+\author {Yue Wang, A53102167}
+\title {CSE255 Homework1 Answer}
+\begin {document}
+\maketitle
+\section *{Regression}
+\subsection *{1}
+The fitted values are $\theta_0 = 3.11521115$, $\theta_1 = 0.10905507$ \\
+\subsection *{2}
+The fitted values are $\theta_0 = 1.40998006e^{+00}$, $\theta_1 = 6.71979699e^{-01}$ $\theta_2 = -5.57829661e^{-02} $, $\theta_3 = 1.95198865e^{-03}$, $\theta_4 = -3.03848616e^{-05}$, $\theta_5 = 1.73376523e^{-07}$\\
+And the mean squared error is: 0.436425509067\\
+\subsection *{3}
+When the degree is 9, the training MSE goes to the minimum point. After that, the training MSE and testing MSE go up very fast.\\
+So the best model is:\\
+Training MSE: 0.449716240495\\
+Testing MSE: 0.439253459889\\
+Model:\\
+$ review/taste = 6.57779065e^{-01} +  7.66518411e^{-01}*beer/ABV + 4.06647965e^{-02}*beer/ABV^2 - 3.84794380e^{-02}*beer/ABV^3 + 
+6.77043490e^{-03}*beer/ABV^4 - 5.85586427e^{-04}*beer/ABV^5 + 2.71796542e^{-05}*beer/ABV^6 - 6.83946306e^{-07}*beer/ABV^7
+ + 8.76795980e^{-09}*beer/ABV^8 - 4.47490401e^{-11}*beer/ABV^9$\\
+\section *{Classfication}
+\subsection *{1}
+The training accuracy is 0.750 while the testing accuracy is 0.738.\\
+\subsection *{2}
+The better model's feature vector is ['child', 'magic', 'funny', 'kid', 'dog', 'cat', 'education', 'pat', 'grow'] \\
+And the testing error is 0.250, which means testing accuracy is 0.750 which is better than the model in question 1.\\
+\subsection *{3}
+c=0.001, Train Error:0.492, Valid Error:0.509, Test Error:0.507\\
+c=0.01, Train Error:0.252, Valid Error:0.254, Test Error:0.273\\
+c=0.1, Train Error:0.252, Valid Error:0.254, Test Error:0.273\\
+c=1, Train Error:0.250, Valid Error:0.251, Test Error:0.272\\
+c=10, Train Error:0.250, Valid Error:0.251, Test Error:0.272\\
+c=100, Train Error:0.250, Valid Error:0.251, Test Error:0.272\\
+c=1000, Train Error:0.250, Valid Error:0.251, Test Error:0.272\\
+The test error is going down as the c goes up, and the 0.272 best reflects the model's ability to generalize to new data.\\
+Code Snippets:
+
+\subsection *{4}
+fprime:\\
+The log-likelihood after convergence is: -2297.06998075\\
+The accuracy on test set is: 0.729\\
+\end{document}

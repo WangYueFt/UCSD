@@ -32,15 +32,16 @@ $P(J=0) = 1 - P(J=1) = 1 - 0.052142 = 0.947858$\\
 $P(A=1|J=0) = \frac{P(J=0| A=1)*P(A=1)}{P(J=0)} = \frac{(1-P(J=1|A=1))*P(A=1)}{P(J=0)} = \frac{(1-0.90)*0.00252}{0.947858} = 0.0002659$\\
 \subsection *{(d)}
 $P(M=0|A=0) = 1 - P(M=1|A=0) = 0.99$\\
-$P(M=0|A=1) = 1 - P(M=1|A=1) = 0.70$\\
-$P(M=0) = P(M=0, A=1) + P(M=0, A=1) = P(M=0|A=0)*P(A=0) + P(M=0|A=1)*P(A=1) = 0.99*0.99748 + 0.70*0.00252 = 0.9892692$\\
-$P(A=1|M=0) = \frac{P(M=0|A=1)*P(A=1)}{P(M=0)} = \frac{0.70*0.00252}{0.9892692} = 0.001783134$\\
-$P(A=0|M=0) = 1 - P(A=1|M=0) = 0.998216866$\\
+$P(M=0|A=1) = 1 - P(M=1|A=1) = 0.30$\\
+$P(M=0) = P(M=0, A=0) + P(M=0, A=1) = P(M=0|A=0)*P(A=0) + P(M=0|A=1)*P(A=1) = 0.99*0.99748 + 0.30*0.00252 = 0.9882612$\\
+$P(A=1|M=0) = \frac{P(M=0|A=1)*P(A=1)}{P(M=0)} = \frac{0.70*0.00252}{0.9882612} = 0.001784953$\\
+$P(A=0|M=0) = 1 - P(A=1|M=0) = 0.998215047$\\
 $P(J=0|M=0) = P(J=0, A=1|M=0) + P(J=0, A=0|M=0) = P(J=0|A=1, M=0)*P(A=1|M=0) + P(J=0|A=0, M=0)*P(A=0|M=0) = P(J=0|A=1)*P(A=1|M=0) + P(J=0|A=0)*P(A=0|M=0)=
-(1-0.90)*0.001783134 + (1-0.05)*0.998216866 = 0.948484336$\\
-$P(A=1|J=0, M=0) = \frac{P(J=0|A=1, M=0)*P(A=1|M=0)}{P(J=0|M=0)} = \frac{P(J=0|A=1)*P(A=1|M=0)}{P(J=0|M=0)} = \frac{(1-0.90)*0.001783134}{0.948484336} = 0.000188$\\
+(1-0.90)*0.001784953 + (1-0.05)*0.998215047 = 0.94848279$\\
+$P(J=0, M=0) = P(J=0|M=0) * P(M=0) = 0.94848279 * 0.9882612 = 0.93734874$\\
+$P(A=1|J=0, M=0) = \frac{P(J=0, M=0|A=1)*P(A=1)}{P(J=0, M=0)} = \frac{P(J=0|A=1)*P(M=0|A=1)*P(A=1)}{P(J=0, M=0)} = \frac{(1-0.90)*(1-0.70)*0.00252}{0.93734874} = 0.000080653$\\
 \subsection *{(e)}
-$P(A=1|M=1) = \frac{P(M=1|A=1)*P(A=1)}{P(M=1)} = \frac{P(M=1|A=1)*P(A=1)}{1 - P(M=0)} = \frac{0.70*0.00252}{1-0.9892692} = 0.164387$\\
+$P(A=1|M=1) = \frac{P(M=1|A=1)*P(A=1)}{P(M=1)} = \frac{P(M=1|A=1)*P(A=1)}{1 - P(M=0)} = \frac{0.70*0.00252}{1-0.9882612} = 0.150270897$\\
 \subsection *{(f)}
 $P(A=1|E=0) = \frac{P(E=0|A=1)*P(A=1)}{P(E=0)} = \frac{(1-0.231)*0.00252}{(1-0.002)} = 0.001941764$\\
 $P(A=0|E=0) = 1 - P(A=1|E=0) = 1 - 0.001941764 = 0.998058236$\\
@@ -65,33 +66,34 @@ $\sigma(-z) + \sigma(z) = \frac{1}{1+e^{-z}} + \frac{1}{1+e^{z}} = \frac{e^z}{e^
 $L(\sigma(z)) = \log(\frac{\sigma(z)}{1-\sigma(z)}) = \log(\frac{\sigma(z)}{\sigma(-z)}) = \log(\frac{1+e^z}{1+e^{-z}}) = \log(\frac{(1+e^z)*e^{-z}}{(1+e^{-z})*e^{-z}}) = \log(\frac{(1+e^{-z})}{(1+e^{-z})*e^{-z}}) = \log(\frac{1}{e^{-z}})= \log(e^z) = z$
 \section *{2.4 Conditional independence}
 1.$P(rain, sprinkler|month) = P(rain|month)P(sprinkler|month)$\\
-2.$P(month, water|sprinkler) = P(month|sprinkler)P(water|sprinkler)$\\
-3.$P(month, water|rain) = P(month|rain)P(water|rain)$\\
-4.$P(month, water|sprinkler, rain) = P(month|sprinkler, rain)P(water|sprinkler, rain)$\\
-5.$P(sprinkler, fall|water) = P(sprinkler|water)P(fall|water)$\\
-6.$P(rain, fall|water) = P(rain|water)P(fall|water)$\\
-7.$P(month, fall|sprinkler, water) = P(month|sprinkler, water)P(fall|sprinkler, water)$\\
-8.$P(month, fall|rain, water) = P(month|rain, water)P(fall|rain, water)$\\
-9.$P(month, fall|sprinkler, rain) = P(month|sprinkler, rain)P(fall|sprinkler, rain)$\\
-10.$P(month, fall|sprinkler, rain, water) = P(month|sprinkler, rain, water)P(fall|sprinkler, rain, water)$\\
-11.$P(month, fall|sprinkler) = P(month|sprinkler)P(fall|sprinkler)$\\
-12.$P(month, fall|rain) = P(month|rain)P(fall|rain)$\\
-13.$P(month, fall|water) = P(month|water)P(fall|water)$\\
-14.$P(month, water|sprinkler, fall) = P(month|sprinkler, fall)P(water|sprinkler, fall)$\\
-15.$P(month, water|rain, fall) = P(month|rain, fall)P(water|rain, fall)$\\
-16.$P(month, water|sprinkler, rain, fall) = P(month|sprinkler, rain)P(water|sprinkler, rain, fall)$\\
+2.$P(rain, fall|water) = P(rain|water)P(fall|water)$\\
+3.$P(sprinkler, fall|water) = P(sprinkler|water)P(fall|water)$\\
+4.$P(rain, fall|water, month) = P(rain|water, month)P(fall|water, month)$\\
+5.$P(sprinkler, fall|water, month) = P(sprinkler|water, month)P(fall|water, month)$\\
+6.$P(rain, fall|water, month, sprinkler) = P(rain|water, month, sprinkler)P(fall|water, month, sprinkler)$\\
+7.$P(sprinkler, fall|water, month, rain) = P(sprinkler|water, month, rain)P(fall|water, month, rain)$\\
+8.$P(rain, fall|water, sprinkler) = P(rain|water, sprinkler)P(fall|water, sprinkler)$\\
+9.$P(sprinkler, fall|water, rain) = P(sprinkler|water, rain)P(fall|water, rain)$\\
+10.$P(month, water|sprinkler, rain) = P(month|sprinkler, rain)P(water|sprinkler, rain)$\\
+11.$P(month, water|sprinkler, rain, fall) = P(month|sprinkler, rain, fall)P(water|sprinkler, rain, fall)$\\
+12.$P(month, fall|sprinkler, water) = P(month|sprinkler, water)P(fall|sprinkler, water)$\\
+13.$P(month, fall|rain, water) = P(month|rain, water)P(fall|rain, water)$\\
+14.$P(month, fall|sprinkler, rain, water) = P(month|sprinkler, rain, water)P(fall|sprinkler, rain, water)$\\
+15.$P(month, fall|sprinkler, rain) = P(month|sprinkler, rain)P(fall|sprinkler, rain)$\\
+16.$P(month, fall|water) = P(month|water)P(fall|water)$\\
 \section *{2.5 Markov blanket}
 There are 5 types conditional independence, let's look at each case:\\
 Parent's parents $->$ X:\\
 $P(1, X|B_X) = P(1|B_X)P(X|B_X)$ for the d-separation rule (II)\\
 Children's parent's parents $->$ X:\\
-$P(2, X|B_X) = P(2|B_X)P(X|B_X)$ for the d-separation rule (II), this seems strange because in the path $2->X$, the rule (III) doesn't hold. But in the definition of d-separation, one of the three rules holds will lead to d-separation. (Since 2 and X are not d-connected because there is a "non-collider" in the path)\\
+$P(2, X|B_X) = P(2|B_X)P(X|B_X)$ for the d-separation rule (II)(Since 2 and X are not d-connected because there is a "non-collider" in the path)\\
 Parent's children $->$ X:\\
 $P(3, X|B_X) = P(3|B_X)P(X|B_X)$ for the d-separation rule (I)\\
 Children's parent's children $->$ X:\\
 $P(4, X|B_X) = P(4|B_X)P(X|B_X)$ for the d-separation rule (II) and similar explaination with 2$->$X\\
 Children's children $->$ X:\\
 $P(5, X|B_X) = P(5|B_X)P(X|B_X)$ for the d-separation rule (II)\\
+So for any node Y outside the Markov blanket of X we have:\\$P (X, Y |BX ) = P (X|BX )P (Y |BX )$\\
 \section *{2.6 Noisy-OR}
 (a)$P(Z=1|X=0, Y=0) < P(Z=1|X=0, Y=1)$\\
 (b)$P(Z=1|X=1, Y=0) < P(Z=1|X=0, Y=1)$\\
@@ -101,25 +103,25 @@ $P(5, X|B_X) = P(5|B_X)P(X|B_X)$ for the d-separation rule (II)\\
 (f)$P(X=1|Z=1) > P(X=1|Y=1, Z=1)$\\
 (g)$P(X=1)P(Y=1)P(Z=1) < P(X=1, Y=1, Z=1)$\\
 \section *{2.7 More conditional independence}
-True\qquad P(E, F|D) = P(E|D)P(F|D) \\
-False\qquad P(E, F|C, D) = P(E|C, D)P(F|C, D)\\
-True \qquad P(E, F|A, B, D) = P(E|A, B, D)P(F|A, B, D)\\
-False \qquad P(D|C) = P(D)\\
-True \qquad P(D|A,B) = P(D|A, B, C)\\
-True \qquad P(A, B) = P(A)P(B)\\
-False \qquad P(A|C, D) = P (A|C, D, F)\\
-True \qquad P(A|B, C, D) = P(A|B, C, D, F)\\
-True \qquad P(B|A, C, D, F) = P(B|A, C, D, F, E)\\
-False \qquad P(B, F, A, E|C, D) = P(B, F|C, D)P(A, E|C, D)\\
+False\qquad $P(E, F|D) = P(E|D)P(F|D)$ \\
+False\qquad $P(E, F|C, D) = P(E|C, D)P(F|C, D)$\\
+True \qquad $P(E, F|A, B, D) = P(E|A, B, D)P(F|A, B, D)$\\
+False \qquad $P(D|C) = P(D)$\\
+True \qquad $P(D|A,B) = P(D|A, B, C)$\\
+True \qquad $P(A, B) = P(A)P(B)$\\
+False \qquad $P(A|C, D) = P (A|C, D, F)$\\
+True \qquad $P(A|B, C, D) = P(A|B, C, D, F)$\\
+True \qquad $P(B|A, C, D, F) = P(B|A, C, D, F, E)$\\
+False \qquad $P(B, F, A, E|C, D) = P(B, F|C, D)P(A, E|C, D)$\\
 \section *{2.8 Even more conditional independence}
-$P(B|D) = P(B|S) \qquad S = {D, G, A, C, E}$\\
-$P(B|D, F) = P(B|S) \qquad S = {D, F, G, E}$\\
-$P(C|D) = P(C|S) \qquad S = {D, B, G}$\\
-$P(C|F, G) = P(C|S) \qquad S = {F, G}$\\
-$P(C|A, E, F) = P(C|S) \qquad S = {A, E, F}$\\
-$P(E|F) = P(E|S) \qquad S = {F}$\\
-$P(E|C) = P(E|S) \qquad S = {C, A, F, B, D, G}$\\
-$P(F) = P(F|S) \qquad S = {}$\\
-$P(F|C, D) = P(F|S) \qquad S = {C, D, E, G}$\\
-$P(A, B) = P(A, B|S) \qquad S = {}$\\
+$P(B|D) = P(B|S) \qquad S = \{D, G, A, C, E\}$\\
+$P(B|D, F) = P(B|S) \qquad S = \{D, F, G\}$\\
+$P(C|D) = P(C|S) \qquad S = \{D, B, G\}$\\
+$P(C|F, G) = P(C|S) \qquad S = \{F, G\}$\\
+$P(C|A, E, F) = P(C|S) \qquad S = \{A, E, F\}$\\
+$P(E|F) = P(E|S) \qquad S = \{F\}$\\
+$P(E|C) = P(E|S) \qquad S = \{C, A, F, B, D, G\}$\\
+$P(F) = P(F|S) \qquad S = \{\}$\\
+$P(F|C, D) = P(F|S) \qquad S = \{C, D, E, G\}$\\
+$P(A, B) = P(A, B|S) \qquad S = \{\}$\\
 \end{document}
